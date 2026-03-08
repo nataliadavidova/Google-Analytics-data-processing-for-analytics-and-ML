@@ -1,0 +1,8 @@
+#!/bin/sh
+'''exec' "/Users/natalydavidoff/Desktop/Наташа/Python/Final homework DS part/final_project_ga/.venv_clean/bin/python" "$0" "$@"
+' '''
+import sys
+from numpy.f2py.f2py2e import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())

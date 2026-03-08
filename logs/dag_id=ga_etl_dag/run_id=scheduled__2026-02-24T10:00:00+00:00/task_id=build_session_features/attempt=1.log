@@ -1,0 +1,33 @@
+[2026-02-24T11:00:06.644+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-24T11:00:06.659+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga_etl_dag.build_session_features scheduled__2026-02-24T10:00:00+00:00 [queued]>
+[2026-02-24T11:00:06.663+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga_etl_dag.build_session_features scheduled__2026-02-24T10:00:00+00:00 [queued]>
+[2026-02-24T11:00:06.663+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-02-24T11:00:06.673+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): build_session_features> on 2026-02-24 10:00:00+00:00
+[2026-02-24T11:00:06.675+0000] {standard_task_runner.py:64} INFO - Started process 2285 to run task
+[2026-02-24T11:00:06.677+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ga_etl_dag', 'build_session_features', 'scheduled__2026-02-24T10:00:00+00:00', '--job-id', '151', '--raw', '--subdir', 'DAGS_FOLDER/ga_etl_dag.py', '--cfg-path', '/tmp/tmpph54a17_']
+[2026-02-24T11:00:06.678+0000] {standard_task_runner.py:91} INFO - Job 151: Subtask build_session_features
+[2026-02-24T11:00:06.703+0000] {task_command.py:426} INFO - Running <TaskInstance: ga_etl_dag.build_session_features scheduled__2026-02-24T10:00:00+00:00 [running]> on host 18e2fa46102c
+[2026-02-24T11:00:06.744+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ga_etl_dag' AIRFLOW_CTX_TASK_ID='build_session_features' AIRFLOW_CTX_EXECUTION_DATE='2026-02-24T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-24T10:00:00+00:00'
+[2026-02-24T11:00:06.744+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-24T11:00:06.752+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-24T11:00:06.752+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/project && python -m src.etl.build_session_features --db data/ga.sqlite --recreate']
+[2026-02-24T11:00:06.757+0000] {subprocess.py:86} INFO - Output:
+[2026-02-24T11:17:43.022+0000] {subprocess.py:93} INFO - 🧹 Recreate mode: dropping session_features
+[2026-02-24T11:17:43.027+0000] {subprocess.py:93} INFO - 🧱 Building session_features ...
+[2026-02-24T11:17:43.027+0000] {subprocess.py:93} INFO - ⚙️ Creating indexes on session_features ...
+[2026-02-24T11:17:43.027+0000] {subprocess.py:93} INFO - ✅ session_features created.
+[2026-02-24T11:17:43.027+0000] {subprocess.py:93} INFO - 
+[2026-02-24T11:17:43.027+0000] {subprocess.py:93} INFO - --- Sanity checks ---
+[2026-02-24T11:17:43.028+0000] {subprocess.py:93} INFO - sessions rows: 1,894,764
+[2026-02-24T11:17:43.028+0000] {subprocess.py:93} INFO - hits rows: 16,064,958
+[2026-02-24T11:17:43.030+0000] {subprocess.py:93} INFO - session_features rows: 1,894,764  (должно == sessions rows)
+[2026-02-24T11:17:43.032+0000] {subprocess.py:93} INFO - MAX dates: sessions=2022-01-05 | hits=2022-01-05 | session_features=2022-01-05
+[2026-02-24T11:17:43.032+0000] {subprocess.py:93} INFO - CR target_showed_number_ads: 0.064855
+[2026-02-24T11:17:43.032+0000] {subprocess.py:93} INFO - CR target_funnel_go_to_then_showed: 0.005294
+[2026-02-24T11:17:43.032+0000] {subprocess.py:93} INFO - sessions without hits: 129,182
+[2026-02-24T11:17:43.065+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-24T11:17:43.068+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-24T11:17:43.326+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ga_etl_dag, task_id=build_session_features, run_id=scheduled__2026-02-24T10:00:00+00:00, execution_date=20260224T100000, start_date=20260224T110006, end_date=20260224T111743
+[2026-02-24T11:17:43.372+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-24T11:17:43.391+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-24T11:17:43.392+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

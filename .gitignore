@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# env
+.env
+.venv/
+
+# data artifacts
+data/ga.db
+data/models/*
+data/predictions/*
+data/incoming_json/*
+
+# optional: keep raw data local (если не хочешь коммитить датасеты)
+# data/raw/*

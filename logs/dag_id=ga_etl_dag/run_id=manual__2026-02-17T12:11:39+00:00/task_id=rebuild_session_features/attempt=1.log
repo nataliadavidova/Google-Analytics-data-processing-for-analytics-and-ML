@@ -1,0 +1,57 @@
+[2026-02-17T12:17:21.556+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-17T12:17:21.563+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga_etl_dag.rebuild_session_features manual__2026-02-17T12:11:39+00:00 [queued]>
+[2026-02-17T12:17:21.565+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga_etl_dag.rebuild_session_features manual__2026-02-17T12:11:39+00:00 [queued]>
+[2026-02-17T12:17:21.565+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-02-17T12:17:21.569+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): rebuild_session_features> on 2026-02-17 12:11:39+00:00
+[2026-02-17T12:17:21.571+0000] {standard_task_runner.py:64} INFO - Started process 87 to run task
+[2026-02-17T12:17:21.572+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ga_etl_dag', 'rebuild_session_features', 'manual__2026-02-17T12:11:39+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/ga_etl_dag.py', '--cfg-path', '/tmp/tmpe0_wwdv4']
+[2026-02-17T12:17:21.572+0000] {standard_task_runner.py:91} INFO - Job 6: Subtask rebuild_session_features
+[2026-02-17T12:17:21.585+0000] {task_command.py:426} INFO - Running <TaskInstance: ga_etl_dag.rebuild_session_features manual__2026-02-17T12:11:39+00:00 [running]> on host 18e2fa46102c
+[2026-02-17T12:17:21.603+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ga_etl_dag' AIRFLOW_CTX_TASK_ID='rebuild_session_features' AIRFLOW_CTX_EXECUTION_DATE='2026-02-17T12:11:39+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-17T12:11:39+00:00'
+[2026-02-17T12:17:21.603+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-17T12:26:57.293+0000] {local_task_job_runner.py:124} ERROR - Received SIGTERM. Terminating subprocesses
+[2026-02-17T12:26:57.303+0000] {process_utils.py:132} INFO - Sending 15 to group 87. PIDs of all processes in the group: [88, 87]
+[2026-02-17T12:26:57.304+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 87
+[2026-02-17T12:26:57.306+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-02-17T12:26:57.311+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-17T12:26:57.343+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/ga_etl_dag.py", line 77, in rebuild_session_features_mart
+  File "/opt/airflow/dags/ga_etl_dag.py", line 37, in run_cmd
+  File "/usr/local/lib/python3.12/subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 1201, in communicate
+    self.wait()
+  File "/usr/local/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 2053, in _wait
+    (pid, sts) = self._try_wait(0)
+                 ^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/subprocess.py", line 2011, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-02-17T12:26:57.358+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=ga_etl_dag, task_id=rebuild_session_features, run_id=manual__2026-02-17T12:11:39+00:00, execution_date=20260217T121139, start_date=20260217T121721, end_date=20260217T122657
+[2026-02-17T12:26:57.445+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=87, status='terminated', exitcode=2, started='12:17:20') (87) terminated with exit code 2
+[2026-02-17T12:26:57.446+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=88, status='terminated', started='12:17:20') (88) terminated with exit code None
+[2026-02-17T12:26:57.448+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 143
+[2026-02-17T12:26:57.478+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check

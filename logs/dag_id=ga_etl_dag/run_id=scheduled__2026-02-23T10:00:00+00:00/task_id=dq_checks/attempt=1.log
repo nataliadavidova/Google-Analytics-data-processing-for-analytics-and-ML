@@ -1,0 +1,17 @@
+[2026-02-23T11:14:20.008+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-23T11:14:20.027+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga_etl_dag.dq_checks scheduled__2026-02-23T10:00:00+00:00 [queued]>
+[2026-02-23T11:14:20.032+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga_etl_dag.dq_checks scheduled__2026-02-23T10:00:00+00:00 [queued]>
+[2026-02-23T11:14:20.032+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-02-23T11:14:20.044+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): dq_checks> on 2026-02-23 10:00:00+00:00
+[2026-02-23T11:14:20.047+0000] {standard_task_runner.py:64} INFO - Started process 1386 to run task
+[2026-02-23T11:14:20.049+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ga_etl_dag', 'dq_checks', 'scheduled__2026-02-23T10:00:00+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/ga_etl_dag.py', '--cfg-path', '/tmp/tmpyrghj5wm']
+[2026-02-23T11:14:20.050+0000] {standard_task_runner.py:91} INFO - Job 104: Subtask dq_checks
+[2026-02-23T11:14:20.079+0000] {task_command.py:426} INFO - Running <TaskInstance: ga_etl_dag.dq_checks scheduled__2026-02-23T10:00:00+00:00 [running]> on host 18e2fa46102c
+[2026-02-23T11:14:20.127+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ga_etl_dag' AIRFLOW_CTX_TASK_ID='dq_checks' AIRFLOW_CTX_EXECUTION_DATE='2026-02-23T10:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-23T10:00:00+00:00'
+[2026-02-23T11:14:20.128+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-23T11:14:21.045+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-02-23T11:14:21.046+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-23T11:14:21.053+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ga_etl_dag, task_id=dq_checks, run_id=scheduled__2026-02-23T10:00:00+00:00, execution_date=20260223T100000, start_date=20260223T111420, end_date=20260223T111421
+[2026-02-23T11:14:21.182+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-23T11:14:21.195+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-23T11:14:21.196+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

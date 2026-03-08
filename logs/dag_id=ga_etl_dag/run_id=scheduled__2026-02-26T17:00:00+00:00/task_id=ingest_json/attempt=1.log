@@ -1,0 +1,37 @@
+[2026-02-26T18:00:03.902+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-02-26T18:00:03.928+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ga_etl_dag.ingest_json scheduled__2026-02-26T17:00:00+00:00 [queued]>
+[2026-02-26T18:00:03.939+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ga_etl_dag.ingest_json scheduled__2026-02-26T17:00:00+00:00 [queued]>
+[2026-02-26T18:00:03.939+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-02-26T18:00:03.959+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): ingest_json> on 2026-02-26 17:00:00+00:00
+[2026-02-26T18:00:03.963+0000] {standard_task_runner.py:64} INFO - Started process 4371 to run task
+[2026-02-26T18:00:03.964+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'ga_etl_dag', 'ingest_json', 'scheduled__2026-02-26T17:00:00+00:00', '--job-id', '274', '--raw', '--subdir', 'DAGS_FOLDER/ga_etl_dag.py', '--cfg-path', '/tmp/tmpjdtp18hv']
+[2026-02-26T18:00:03.966+0000] {standard_task_runner.py:91} INFO - Job 274: Subtask ingest_json
+[2026-02-26T18:00:03.999+0000] {task_command.py:426} INFO - Running <TaskInstance: ga_etl_dag.ingest_json scheduled__2026-02-26T17:00:00+00:00 [running]> on host 18e2fa46102c
+[2026-02-26T18:00:04.072+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ga_etl_dag' AIRFLOW_CTX_TASK_ID='ingest_json' AIRFLOW_CTX_EXECUTION_DATE='2026-02-26T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-02-26T17:00:00+00:00'
+[2026-02-26T18:00:04.072+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-02-26T18:00:04.079+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-02-26T18:00:04.084+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/project && python -m src.etl.ingest_json --db data/ga.sqlite --input-dir data/incoming_json']
+[2026-02-26T18:00:04.089+0000] {subprocess.py:86} INFO - Output:
+[2026-02-26T18:00:04.752+0000] {subprocess.py:93} INFO - DB: data/ga.sqlite
+[2026-02-26T18:00:04.752+0000] {subprocess.py:93} INFO - Input dir: data/incoming_json
+[2026-02-26T18:00:04.755+0000] {subprocess.py:93} INFO - Found JSON files: 10
+[2026-02-26T18:00:04.757+0000] {subprocess.py:93} INFO - Force reload: False
+[2026-02-26T18:00:04.757+0000] {subprocess.py:93} INFO - 
+[2026-02-26T18:00:04.758+0000] {subprocess.py:93} INFO - Last ingestion_log rows:
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (44, '2026-02-17T12:23:58', 'ga_sessions_new_2022-01-05.json', 'success', 'sessions', 9493, 9493, None)
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (43, '2026-02-17T12:23:57', 'ga_sessions_new_2022-01-04.json', 'success', 'sessions', 9383, 9383, None)
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (42, '2026-02-17T12:23:57', 'ga_sessions_new_2022-01-03.json', 'success', 'sessions', 8569, 8569, None)
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (41, '2026-02-17T12:23:56', 'ga_sessions_new_2022-01-02.json', 'success', 'sessions', 7277, 7277, None)
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (40, '2026-02-17T12:23:56', 'ga_sessions_new_2022-01-01.json', 'success', 'sessions_empty', 0, 0, None)
+[2026-02-26T18:00:04.759+0000] {subprocess.py:93} INFO - (39, '2026-02-17T12:23:53', 'ga_hits_new_2022-01-05.json', 'success', 'hits', 92170, 92170, None)
+[2026-02-26T18:00:04.760+0000] {subprocess.py:93} INFO - (38, '2026-02-17T12:23:50', 'ga_hits_new_2022-01-04.json', 'success', 'hits', 91576, 91576, None)
+[2026-02-26T18:00:04.760+0000] {subprocess.py:93} INFO - (37, '2026-02-17T12:23:46', 'ga_hits_new_2022-01-03.json', 'success', 'hits', 81243, 81243, None)
+[2026-02-26T18:00:04.760+0000] {subprocess.py:93} INFO - (36, '2026-02-17T12:23:45', 'ga_hits_new_2022-01-02.json', 'success', 'hits', 73499, 73499, None)
+[2026-02-26T18:00:04.760+0000] {subprocess.py:93} INFO - 
+[2026-02-26T18:00:04.760+0000] {subprocess.py:93} INFO - Done.
+[2026-02-26T18:00:04.760+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-02-26T18:00:04.761+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-02-26T18:00:04.928+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=ga_etl_dag, task_id=ingest_json, run_id=scheduled__2026-02-26T17:00:00+00:00, execution_date=20260226T170000, start_date=20260226T180003, end_date=20260226T180004
+[2026-02-26T18:00:04.976+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-02-26T18:00:05.001+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-26T18:00:05.007+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
